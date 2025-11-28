@@ -1,5 +1,5 @@
 {
-    "require": {
-        "phpoffice/phpspreadsheet": "^5.3"
-    }
+  "require": {
+    "heroku/heroku-buildpack-php": "*"
+  }
 }
