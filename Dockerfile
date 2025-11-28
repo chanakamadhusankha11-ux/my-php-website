@@ -1,19 +1,29 @@
-# Use the official Heroku PHP image which includes Apache and Composer
-FROM heroku/php:22-apache
+# Step 1: Use the official PHP image with Apache server
+# We are using PHP version 8.2, which is modern and stable.
+FROM php:8.2-apache
 
-# Copy the application code into the container
-# The source directory on your computer is copied to /app in the container
-COPY . /app
+# Step 2: Install necessary system dependencies and PHP extensions
+# pdo and pdo_pgsql are needed to connect to our PostgreSQL database.
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    zip \
+    unzip \
+&& docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+&& docker-php-ext-install pdo pdo_pgsql
 
-# Set the working directory
-WORKDIR /app
+# Step 3: Install Composer (The PHP package manager)
+# This downloads the composer installer and runs it.
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Run composer install to get all the dependencies
-# This will also create the vendor/bin/heroku-php-apache2 file
-RUN composer install --no-dev --optimize-autoloader
+# Step 4: Set the working directory to where Apache looks for files
+WORKDIR /var/www/html
 
-# This command will be run when the container starts
-# It starts the Apache web server
-# The CMD is already defined in the base image, so we don't need to specify it.
-# CMD ["/app/vendor/bin/heroku-php-apache2", "/app/"] 
-# Let's comment out the CMD line as the base image might handle it.
+# Step 5: Copy our project files into the container
+COPY . .
+
+# Step 6: Run composer install to download PHP dependencies
+# This will download the 'heroku/heroku-buildpack-php' package.
+RUN composer install --no-interaction --optimize-autoloader --no-dev
+
+# Step 7: Fix permissions so Apache can read/write files
+RUN chown -R www-data:www-data /var/www/html
