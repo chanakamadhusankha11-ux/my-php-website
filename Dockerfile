@@ -1,5 +1,5 @@
 # Use the official Heroku PHP image which includes Apache and Composer
-FROM heroku/heroku:22-php
+FROM heroku/php:22-apache
 
 # Copy the application code into the container
 # The source directory on your computer is copied to /app in the container
@@ -14,4 +14,6 @@ RUN composer install --no-dev --optimize-autoloader
 
 # This command will be run when the container starts
 # It starts the Apache web server
-CMD ["/app/vendor/bin/heroku-php-apache2", "/app/"]
+# The CMD is already defined in the base image, so we don't need to specify it.
+# CMD ["/app/vendor/bin/heroku-php-apache2", "/app/"] 
+# Let's comment out the CMD line as the base image might handle it.
