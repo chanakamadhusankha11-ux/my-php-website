@@ -6,7 +6,9 @@
     <style>body{text-align: center; padding: 100px; font-family: sans-serif; background: #222; color: #fff;} h1{font-size: 40px; color: #FFA500;}</style>
 </head>
 <body>
+  <center>
     <h1>We Are Sorry</h1>
-    <p>You must agree to our terms and conditions to use this site.</p>
+    <p>This website is only intended for users over the age of 18.</p>
+	</center>
 </body>
 </html>

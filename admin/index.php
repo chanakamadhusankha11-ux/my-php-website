@@ -18,16 +18,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute([$username]);
     $admin = $stmt->fetch();
 
-   if ($admin && password_verify($password, $admin['password'])) {
-        // Password is correct, start the session
+    if ($admin && password_verify($password, $admin['password'])) {
+        // Password is correct, start the session and store user data
         $_SESSION['admin_loggedin'] = true;
+        $_SESSION['admin_id'] = $admin['id']; // Store the admin's ID
         $_SESSION['admin_username'] = $admin['username'];
+        $_SESSION['admin_role'] = $admin['role']; // Store the admin's role
         header('Location: dashboard.php');
         exit;
     } else {
-        $error = 'Invalid username or password!';
+        // --- මෙන්න මෙතන තමයි වැරැද්ද තිබ්බේ ---
+        // Login වැරදුනොත් error message එකක් set කරනවා
+        $error = 'Invalid username or password.';
     }
-}
+} // --- මෙතනට අමතක වෙච්ච '}' bracket එක දැම්මා ---
 ?>
 
 <!DOCTYPE html>

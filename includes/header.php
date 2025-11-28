@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $page_title ?? 'MYSITE'; ?></title>
+    <title><?php echo $page_title ?? 'PORNHUT'; ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Ad Codes -->
     <?php 
@@ -12,6 +12,14 @@
             echo $GLOBALS['settings']['ad_socialbar'] ?? '';
         }
     ?>
+	
+	
+	
+	
+<link rel="icon" type="image/png" href="includes/favicon-32x32.png">
+    <link rel="shortcut icon" href="/includes/favicon.ico">
+	
+	
 </head>
 <body>
 
@@ -20,8 +28,17 @@
     <!-- ======================================================= -->
     <div class="popup-overlay" id="agreementPopup" style="display: none;">
         <div class="popup-content">
-            <h2>Welcome to MYSITE</h2>
-            <p>By clicking "Agree", you confirm you are over 18 and agree to our <a href="terms.php" target="_blank">Terms & Conditions</a>.</p>
+            <h2>
+			<mark style="background-color: black;">
+			<span style="color: white;">PORN</span>
+    <span style="color: orange;">HUT </span>
+			</mark>
+			
+			- This is an adult website</h2>
+			
+			
+			
+            <p>This website contains age-restricted materials including nudity and explicit depictions of sexual activity. By entering, you affirm that you are at least 18 years of age or the age of majority in the jurisdiction you are accessing the website from and you consent to viewing sexually explicit content.By clicking "Agree", you confirm you are over 18 and agree to our <a href="terms.php" target="_blank">Terms & Conditions</a>.</p>
             <div class="popup-buttons">
                 <button id="agreeBtn" class="agree-btn">Agree & Enter</button>
                 <button id="disagreeBtn" class="disagree-btn">Disagree</button>
@@ -34,7 +51,7 @@
 
     <header class="main-header">
         <div class="site-name">
-            <a href="index.php">MY<span>SITE</span></a>
+            <a href="index.php">PORN<span>HUT</span></a>
         </div>
         
         <nav class="main-nav">

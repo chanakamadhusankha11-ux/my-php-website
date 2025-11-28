@@ -1,6 +1,6 @@
 <?php 
 require_once 'config.php';
-$page_title = 'MYSITE - Home'; // For the <title> tag
+$page_title = 'PORNHUT - Home'; // For the <title> tag
 include 'includes/header.php';
 
 $categories = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll(PDO::FETCH_ASSOC);

@@ -9,7 +9,7 @@ $stmt->execute([$category_id]);
 $category_name = $stmt->fetchColumn();
 if (!$category_name) { header('Location: index.php'); exit; }
 
-$page_title = htmlspecialchars($category_name) . ' - MYSITE'; // Set page title
+$page_title = htmlspecialchars($category_name) . ' - PORNHUT'; // Set page title
 include 'includes/header.php';
 
 $stmt = $pdo->prepare("SELECT * FROM videos WHERE category_id = ? ORDER BY created_at DESC");
